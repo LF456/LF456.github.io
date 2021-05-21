@@ -152,6 +152,93 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-JVM内存模型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/05/21/JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">JVM内存模型</a>
+    </h1>
+  
+
+        
+        <a href="/2021/05/21/JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
+  	<time datetime="2021-05-21T09:26:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a><strong>程序计数器</strong></h3><p>​    用来存储指向下一条指令的地址，也即将要执行的指令。由执行引擎读取下一条指令。</p>
+<p>​    每个线程都有自己的程序计数器，是线程私有的，生命周期与线程的生命周期保持一致。</p>
+<h4 id="使用程序计数器存储字节码指令地址的作用："><a href="#使用程序计数器存储字节码指令地址的作用：" class="headerlink" title="使用程序计数器存储字节码指令地址的作用："></a><strong>使用程序计数器存储字节码指令地址的作用：</strong></h4><p>​        CPU需要不断的切换各个线程，通过改变程序计数器的值来明确下一条应该执行什么样的字节码指令。</p>
+<h4 id="程序计数器被设定为线程私有的作用"><a href="#程序计数器被设定为线程私有的作用" class="headerlink" title="程序计数器被设定为线程私有的作用:"></a><strong>程序计数器被设定为线程私有的作用:</strong></h4><p>​        为了能够准确地记录各个线程正在执行的当前字节码指令地址，最好的方法是为每一个线程否分配一个程序计数器。</p>
+<p>​    栈解决程序运行问题，即程序如何执行，如何处理数据。堆解决的是数据存储问题。</p>
+<p>水</p>
+<h3 id="虚拟机栈"><a href="#虚拟机栈" class="headerlink" title="虚拟机栈"></a><strong>虚拟机栈</strong></h3><p>​    生命周期与线程一致</p>
+<p>​    主管Java程序的运行，保存方法的局部变量、部分结果，参与方法的调用与返回。</p>
+<p>​    只有入栈和出栈操作，遵循FILO</p>
+<h4 id="栈桢的内部结构"><a href="#栈桢的内部结构" class="headerlink" title="栈桢的内部结构"></a><strong>栈桢的内部结构</strong></h4><p>​        局部变量表：也称局部变量数组或本地变量表</p>
+<p>​        局部变量表中的变量只在当前方法调用中有效，方法调用结束后，随着方法栈桢的销毁，局部变量表也会随之销毁。</p>
+<p>​        操作数栈：也称为表达式栈，主要用于保存计算过程中的中间结果，同时作为计算过程中变量临时的存储空间。</p>
+<p>​        动态链接：指向运行时常量池的方法引用</p>
+<p>​        方法返回地址：</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JVM虚拟机</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/05/21/JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Java集合源码剖析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -383,6 +470,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JVM虚拟机</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
