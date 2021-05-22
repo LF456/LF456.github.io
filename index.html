@@ -152,6 +152,87 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Java对象创建的过程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/05/22/Java%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA%E7%9A%84%E8%BF%87%E7%A8%8B/">Java对象创建的过程</a>
+    </h1>
+  
+
+        
+        <a href="/2021/05/22/Java%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA%E7%9A%84%E8%BF%87%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2021-05-22T11:22:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-检查"><a href="#1-检查" class="headerlink" title="1.检查"></a>1.检查</h3><p>JVM虚拟机收到一条new指令，检查指令的参数是否能在常量池中定位到一个类的符号引用，并检查这个符号引用代表的类是否已经被加载、解析和初始化过，如果没有，那 必须先执行相应的类加载过程。</p>
+<h3 id="2-分配内存"><a href="#2-分配内存" class="headerlink" title="2.分配内存"></a>2.分配内存</h3><p>JVM在Java堆中为对象划分一块确定大小的内存</p>
+<p>1.如果Java堆是绝对规整的，所有被使用过的内存都被放在一 边，空闲的内存被放在另一边，中间放着一个指针作为分界点的指示器，那所分配内存就仅仅是把那 个指针向空闲空间方向挪动一段与对象大小相等的距离，这种分配方式称为<u><strong>“指针碰撞”</strong></u>。</p>
+<p>2.如果Java堆中的内存并不是规整的,，虚拟机就必须维护一个列表，记录上哪些内存块是可用的，在分 配的时候从列表中找到一块足够大的空间划分给对象实例，并更新列表上的记录，这种分配方式称 为**<u>“空闲列表”</u>**。</p>
+<p>注意：Java堆的是否规整有垃圾回收器是否带有空间压缩整理的能力决定的。</p>
+<h3 id="3-初始化"><a href="#3-初始化" class="headerlink" title="3.初始化"></a>3.初始化</h3><p>JVM将分配到的内存空间（但不包括对象头）都初始化为零值。</p>
+<p>接下来，Java虚拟机还要对对象进行必要的设置，例如这个对象是哪个类的实例、如何才能找到 类的元数据信息、对象的哈希码（实际上对象的哈希码会延后到真正调用Object::hashCode()方法时才 计算）、对象的GC分代年龄等信息。这些信息存放在对象的对象头（Object Header）之中。根据虚拟机当前运行状态的不同，如是否启用偏向锁等，对象头会有不同的设置方式。</p>
+<h3 id="4-调用构造函数"><a href="#4-调用构造函数" class="headerlink" title="4.调用构造函数"></a>4.调用构造函数</h3><p>new指令之后接着执行<init>（）,按照程序员的意愿对对象进行初始化。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JVM虚拟机</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/05/22/Java%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA%E7%9A%84%E8%BF%87%E7%A8%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-JVM内存模型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -177,7 +258,6 @@
 <h4 id="1-1使用程序计数器存储字节码指令地址的作用："><a href="#1-1使用程序计数器存储字节码指令地址的作用：" class="headerlink" title="1.1使用程序计数器存储字节码指令地址的作用："></a>1.1使用程序计数器存储字节码指令地址的作用：</h4><p>​        CPU需要不断的切换各个线程，通过改变程序计数器的值来明确下一条应该执行什么样的字节码指令。</p>
 <h4 id="1-2程序计数器被设定为线程私有的作用"><a href="#1-2程序计数器被设定为线程私有的作用" class="headerlink" title="1.2程序计数器被设定为线程私有的作用:"></a><strong>1.2程序计数器被设定为线程私有的作用:</strong></h4><p>​        为了能够准确地记录各个线程正在执行的当前字节码指令地址，最好的方法是为每一个线程否分配一个程序计数器。</p>
 <p>​    栈解决程序运行问题，即程序如何执行，如何处理数据。堆解决的是数据存储问题。</p>
-<p>水</p>
 <h3 id="2-虚拟机栈"><a href="#2-虚拟机栈" class="headerlink" title="2.虚拟机栈"></a>2.<strong>虚拟机栈</strong></h3><p>​    生命周期与线程一致</p>
 <p>​    主管Java程序的运行，保存方法的局部变量、部分结果，参与方法的调用与返回。</p>
 <p>​    只有入栈和出栈操作，遵循FILO</p>
@@ -194,8 +274,8 @@
 <p>​        实例数据是对象真正存储的有效信息，即我们在程序代码里面所定义的各种类型的字段内容。</p>
 <p>​        对齐填充：这并不是必然存在的，也没有特别的含义，它仅仅起着占位符的作用。 </p>
 <h3 id="5-方法区"><a href="#5-方法区" class="headerlink" title="5.方法区"></a>5.方法区</h3><p>​        是各个线程共享的内存区域，它用于存储已被虚拟机加载 的类型信息、常量、静态变量、即时编译器编译后的代码缓存等数据。</p>
-<p>​        </p>
-<h4 id="5-1运行时常量池"><a href="#5-1运行时常量池" class="headerlink" title="5.1运行时常量池"></a>5.1运行时常量池</h4><p>​        </p>
+<h4 id="5-1运行时常量池"><a href="#5-1运行时常量池" class="headerlink" title="5.1运行时常量池"></a>5.1运行时常量池</h4><p>​        运行时常量池是方法区的一部分，常量池表在类加载后存放到方法区的运行时常量池中。</p>
+<h3 id="6-直接内存"><a href="#6-直接内存" class="headerlink" title="6.直接内存"></a>6.直接内存</h3><p>直接内存（Direct Memory）并不是虚拟机运行时数据区的一部分，也不是《Java虚拟机规范》中 定义的内存区域。</p>
 
       
 
