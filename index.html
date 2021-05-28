@@ -152,6 +152,175 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-字节码执行机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/05/27/%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6/">字节码执行机制</a>
+    </h1>
+  
+
+        
+        <a href="/2021/05/27/%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6/" class="archive-article-date">
+  	<time datetime="2021-05-28T02:34:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-栈桢"><a href="#1-栈桢" class="headerlink" title="1.栈桢"></a>1.栈桢</h3><p>Java虚拟机以方法作为最基本的执行单元，栈帧则是用于支持虚拟机进行方法 调用和方法执行背后的数据结构，它也是虚拟机运行时数据区中的虚拟机栈的栈元素。</p>
+<p><img src="/2021/05/27/%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6/image-20210528111013776.png" alt="image-20210528111013776"></p>
+<h4 id="1-1局部变量表"><a href="#1-1局部变量表" class="headerlink" title="1.1局部变量表"></a>1.1局部变量表</h4><p>用于存放方法参数和方法内部定义的局部变量。</p>
+<h4 id="1-2操作数栈"><a href="#1-2操作数栈" class="headerlink" title="1.2操作数栈"></a>1.2操作数栈</h4><p>是一个后进先出的数据模型，字节码指令执行时会不断的向操作数栈中插入数据、提取数据，称为出栈入栈。</p>
+<h4 id="1-3动态连接"><a href="#1-3动态连接" class="headerlink" title="1.3动态连接"></a>1.3动态连接</h4><p>栈桢指向运行时常量池中该栈桢所属方法的引用，持有这个引用是为了支持方 法调用过程中的动态连接</p>
+<h4 id="1-4方法返回地址"><a href="#1-4方法返回地址" class="headerlink" title="1.4方法返回地址"></a>1.4方法返回地址</h4><p>决定当前方法调用退出后，应该返回的位置。</p>
+<p>正常退出：调用者的PC计数器的值可以作为返回地址，通常返回地址保持在栈帧中。</p>
+<p>异常退出：返回地址是通过异常处理器来确定的，一般不会保存在栈帧中。</p>
+<h3 id="2-方法调用"><a href="#2-方法调用" class="headerlink" title="2.方法调用"></a>2.方法调用</h3><p>方法调用阶段唯一的任务就是确定被调用方法的版本 （即调用哪一个方法）</p>
+<h4 id="2-1解析"><a href="#2-1解析" class="headerlink" title="2.1解析"></a>2.1解析</h4><p>解析调用一定是个静态的过程，在编译期间就完全确定，在类加载的解析阶段就会把涉及的符号 引用全部转变为明确的直接引用，不必延迟到运行期再去完成。</p>
+<h4 id="2-2分派"><a href="#2-2分派" class="headerlink" title="2.2分派"></a>2.2分派</h4><p>静态分派是在编译期就决定了该调用哪一个方法而不是由虚拟机来确定，方法重载就是典型的静态分派。</p>
+<p>动态分派是在虚拟机运行阶段才能决定调用哪一个方法，方法重写就是典型的动态分派。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JVM虚拟机</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/05/27/%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-类加载机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/05/26/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">类加载机制</a>
+    </h1>
+  
+
+        
+        <a href="/2021/05/26/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" class="archive-article-date">
+  	<time datetime="2021-05-26T12:13:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-加载"><a href="#1-加载" class="headerlink" title="1.加载"></a>1.加载</h3><p>1）通过一个类的全限定名来获取定义此类的二进制字节流。 </p>
+<p>2）将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构。 </p>
+<p>3）在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问入 口。</p>
+<h3 id="2-验证"><a href="#2-验证" class="headerlink" title="2.验证"></a>2.验证</h3><p>确保Class文件的字节流中包含的信息符合《Java虚 拟机规范》的全部约束要求，保证这些信息被当作代码运行后不会危害虚拟机自身的安全。</p>
+<h3 id="3-准备"><a href="#3-准备" class="headerlink" title="3.准备"></a>3.准备</h3><p>是正式为类中定义的变量（即静态变量，被static修饰的变量）分配内存并设置类变量初始值的阶段。</p>
+<h3 id="4-解析"><a href="#4-解析" class="headerlink" title="4.解析"></a>4.解析</h3><p>Java虚拟机将常量池内的符号引用替换为直接引用的过程。</p>
+<h3 id="5-初始化"><a href="#5-初始化" class="headerlink" title="5.初始化"></a>5.初始化</h3><p>初始化阶段，Java虚拟机才真正开始执行类中编写的Java程序代码，在初始化阶段，则会根据程序员通过程序编码制定的主观计划去初始化类变量和其他资源。</p>
+<h3 id="双亲委派模型"><a href="#双亲委派模型" class="headerlink" title="双亲委派模型"></a>双亲委派模型</h3><p><img src="/2021/05/26/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/image-20210528084928285.png" alt="image-20210528084928285"></p>
+<p>工作过程：</p>
+<p>如果一个类加载器收到了类加载的请求，它首先不会自己去尝试加载这个类，而是把这个请求委派给父类加载器去完成，每一个层次的类加载器都是如此，因此所有的加载请求最终都应该传送到最顶层的启动类加载器中，只有当父加载器反馈自己无法完成这个加载请 求（它的搜索范围中没有找到所需的类）时，子加载器才会尝试自己去完成加载。</p>
+<p>作用：保证Java程序的稳定运作</p>
+<h3 id="破坏双亲委派模型"><a href="#破坏双亲委派模型" class="headerlink" title="破坏双亲委派模型"></a>破坏双亲委派模型</h3>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JVM虚拟机</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/05/26/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-JVM字节码指令简介" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
