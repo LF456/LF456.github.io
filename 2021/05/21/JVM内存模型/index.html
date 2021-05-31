@@ -16,7 +16,7 @@
 <meta property="og:description" content="1.程序计数器​    用来存储指向下一条指令的地址，也即将要执行的指令。由执行引擎读取下一条指令。 ​    每个线程都有自己的程序计数器，是线程私有的，生命周期与线程的生命周期保持一致。 1.1使用程序计数器存储字节码指令地址的作用：​        CPU需要不断的切换各个线程，通过改变程序计数器的值来明确下一条应该执行什么样的字节码指令。 1.2程序计数器被设定为线程私有的作用:​">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-05-21T09:26:01.000Z">
-<meta property="article:modified_time" content="2021-05-22T11:23:40.555Z">
+<meta property="article:modified_time" content="2021-05-31T03:17:07.423Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="JVM虚拟机">
 <meta name="twitter:card" content="summary">
@@ -195,7 +195,7 @@
 <p>​            2.类型指针，即指向它的类型元数据的指针，Java虚拟机通过该指针确定该对象是哪个类的实例。</p>
 <p>​        实例数据是对象真正存储的有效信息，即我们在程序代码里面所定义的各种类型的字段内容。</p>
 <p>​        对齐填充：这并不是必然存在的，也没有特别的含义，它仅仅起着占位符的作用。 </p>
-<h3 id="5-方法区"><a href="#5-方法区" class="headerlink" title="5.方法区"></a>5.方法区</h3><p>​        是各个线程共享的内存区域，它用于存储已被虚拟机加载 的类型信息、常量、静态变量、即时编译器编译后的代码缓存等数据。</p>
+<h3 id="5-方法区"><a href="#5-方法区" class="headerlink" title="5.方法区"></a>5.方法区</h3><p>​        是各个线程共享的内存区域，它用于存储已被虚拟机加载的类型信息、常量、静态变量、即时编译器编译后的代码缓存等数据。</p>
 <h4 id="5-1运行时常量池"><a href="#5-1运行时常量池" class="headerlink" title="5.1运行时常量池"></a>5.1运行时常量池</h4><p>​        运行时常量池是方法区的一部分，常量池表在类加载后存放到方法区的运行时常量池中。</p>
 <h3 id="6-直接内存"><a href="#6-直接内存" class="headerlink" title="6.直接内存"></a>6.直接内存</h3><p>直接内存（Direct Memory）并不是虚拟机运行时数据区的一部分，也不是《Java虚拟机规范》中 定义的内存区域。</p>
 
